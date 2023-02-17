@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+// Librerias
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+
+// Componentes
+import Login from "./components/Login";
+import Listado from "./components/Listado";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+
+// React-Bootstrap
+import { Container } from "react-bootstrap";
+
+// CSS style
+import "./css/App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <>
+            <Header />
+            {/* // Main content start */}
+            <Container className="py-4 my-1">
+                <Routes>
+                    <Route path="/" element={<Login />} />
+                    <Route path="/listado" element={<Listado />} />
+                </Routes>
+            </Container>
+            {/* // Main content end */}
+            <Footer />
+        </>
+    );
 }
 
 export default App;
