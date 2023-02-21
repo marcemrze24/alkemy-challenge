@@ -55,15 +55,14 @@ const Login = () => {
                 MySwal.fire({
                     title: <p>Login exitoso.</p>,
                 });
-                // Guarda en el localStorage el token de usuario que devuelve el POST
-                localStorage.setItem("token", myToken);
+                // Guarda en el sessionStorage el token de usuario que devuelve el POST
+                sessionStorage.setItem("token", myToken);
                 // redirecciona al listado
                 navigate("/listado");
             });
     };
-
     // Recupero, en caso de tenerlo, al token para usarlo en el renderizado
-    const token = localStorage.getItem("token");
+    const token = sessionStorage.getItem("token");
 
     // Renderizado condicional, dependiente del "token"
     if (token) {
